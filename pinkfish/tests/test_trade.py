@@ -74,19 +74,6 @@ class TestTrade(unittest.TestCase):
         self.assertTrue(states[1] == pf.trade.TradeState.HOLD)
         self.assertTrue(states[2] == pf.trade.TradeState.CLOSE)
 
-    def test_calc_shares(self):
-        ''' Check we are getting the correct number of shares
-            for some level of cash.
-        '''
-        cash, price = 11, 2
-        shares, cash = self.trade_log.calc_shares(cash, price)
-        self.assertEqual(shares, 5)
-        self.assertEqual(cash, 1)
-
-    def test_calc_cash(self):
-        ''' Calculate the cash on liquidation. '''
-        start_cash = 1
-        shares = 10
-        price = 2
-        end_cash = self.trade_log.calc_cash(start_cash, price, shares)
-        self.assertEqual(end_cash, 21)
+    def test_trading(self):
+        ''' Check recording of position enter and exit. '''
+        pass
